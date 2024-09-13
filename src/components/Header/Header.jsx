@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import LogoutBtn from "./logoutBtn";
+import LogoutBtn from "./LogoutBtn";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
