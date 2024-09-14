@@ -42,7 +42,6 @@ export class Service {
           content,
           featuredImage,
           status,
-          userId,
         }
       );
     } catch (error) {
@@ -66,7 +65,6 @@ export class Service {
 
   async getPost(slug) {
     try {
-      console.log("getpost called")
      return await this.databases.getDocument(
         config.appwriteDatabaseId,
         config.appwriteCollectionId,
@@ -120,7 +118,6 @@ export class Service {
   }
 
   getFilePreview(fileId) {
-    console.log('getfilepreview called')
     return this.bucket.getFilePreview(
       config.appwriteBucketId,
       fileId

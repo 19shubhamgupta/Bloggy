@@ -5,6 +5,7 @@ import { Controller } from "react-hook-form";
 
 function RTE({ name, control, label, defaultValue = "No Content" }) {
   return (
+    
     <>
       <div className="w-100">
         {label && <label className="d-inline-block mb-1 ps-1">{label}</label>}

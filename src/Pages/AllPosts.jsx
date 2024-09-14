@@ -1,42 +1,42 @@
 import { useEffect, useState } from "react";
 import service from "../appwrite/conf"; 
 import PostCard from "../components/PostCard";
+import Loader from "../components/Loader";
+
 
 function AllPosts() {
-    // const [posts, setPosts] = useState();
-    
-    // useEffect(() => {
-    //     service.getPosts([]).then((post) => {
-    //         if (post) {
-    //             setPosts(post.documents);
-    //             console.log(posts)
-    //         }
-    //     });
-    // }, []);
+   
     const [post, setPosts] = useState([]);
+    let [loading, setLoading] = useState(true);
     useEffect(() => {
       service.getPosts([]).then((posts) => {
         setPosts(posts.documents);
+        setLoading(false);
       });
     }, []);
 
-    if (post === undefined) {
-        return <h2>No posts</h2>;
-      }
+  
 
-    return (
-        <div className="w-100 py-4">
-            
-                <div className="row">
-                    {post.map((post) => (
-                        <div key={post.$id} className="col-md-3 p-2">
-                            <PostCard {...post} />
-                        </div>
-                    ))}
+   if (loading) {
+    return <Loader />;
+}
+
+if (post === undefined || post.length === 0) {
+    return <h2>No posts</h2>;
+}
+
+return (
+    <div className="w-100 py-4">
+        <div className="row">
+            {post.map((p) => (
+                <div key={p.$id}>
+                    <PostCard {...p} />
                 </div>
-           
+            ))}
         </div>
-    );
+    </div>
+);
+    
 }
 
 export default AllPosts;

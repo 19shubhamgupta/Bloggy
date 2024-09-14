@@ -30,60 +30,50 @@ function Signup() {
         }
     }
   return (
-    <form onSubmit={handleSubmit(signup)} >
-     <div class="container d-flex align-items-center justify-content-center vh-100">
-      <div
-        class="card p-4 shadow-lg"
-        style={{ maxWidth: "400px", width: "100%" }}
-      >
-        <h2 class="text-center text-primary mb-4">Sign up</h2>
-       
-        <div class="mb-3">
-            <label for="name" class="form-label text-primary">
-              Name
-            </label>
-            <input
-              type="text"
-              class="form-control"
-              id="name"
-              name="name"
-              {...register("name",{required:true})}
-            />
-          </div>
-          <div class="mb-3">
-            <label for="email" class="form-label text-primary">
-              Email
-            </label>
-            <input
-              type="text"
-              class="form-control"
-              id="email"
-              name="email"
-              {...register("email",{required:true})}
-            />
-          </div>
-          <div class="mb-3">
-            <label for="password" class="form-label text-primary">
-              Password
-            </label>
-            <input
-              type="password"
-              class="form-control"
-              id="password"
-              name="password"
-              {...register("password",{required:true})}
-            />
-          </div>
-          <button type="submit" class="btn btn-primary w-100" >
-            Sign Up
-          </button>
-          {/* <div class="text-center mt-3">
-            <p class  =" mb-0">Don't have a account Sign up</p>
-          </div> */}
-       
+  <form onSubmit={handleSubmit(signup)}>
+  <div className="container d-flex flex-column justify-content-center" style={{ minHeight: "80vh" }}>
+    <div className="card p-4 shadow-lg mx-auto" style={{ maxWidth: "400px", width: "100%" }}>
+      <h2 className="text-center text-primary mb-4">Sign up</h2>
+      
+      <div className="mb-3">
+        <label htmlFor="name" className="form-label text-primary">Name</label>
+        <input
+          type="text"
+          className="form-control"
+          id="name"
+          name="name"
+          {...register("name", { required: true })}
+        />
       </div>
+
+      <div className="mb-3">
+        <label htmlFor="email" className="form-label text-primary">Email</label>
+        <input
+          type="email"
+          className="form-control"
+          id="email"
+          name="email"
+          {...register("email", { required: true })}
+        />
+      </div>
+
+      <div className="mb-3">
+        <label htmlFor="password" className="form-label text-primary">Password</label>
+        <input
+          type="password"
+          className="form-control"
+          id="password"
+          name="password"
+          {...register("password", { required: true })}
+        />
+      </div>
+
+      <button type="submit" className="btn btn-primary w-100">Sign Up</button>
     </div>
-   </form>
+  </div>
+</form>
+
+
   )
 }
 

@@ -11,8 +11,9 @@ function EditPost() {
         setPost(post);
     })
   },[])
+  console.log(post)
   if(post){
-    <PostForm post = {post}></PostForm>
+    return <PostForm post = {post}></PostForm>
   }
 }
 

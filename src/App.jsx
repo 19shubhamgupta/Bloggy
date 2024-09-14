@@ -7,10 +7,8 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { login, logout } from "./store/authSlice";
-//import Input from "./components/Input";
-//import Login from "./Pages/Login";
-//import Signup from "./Pages/Signup";
 import { Outlet } from "react-router-dom";
+import Loader from "./components/Loader";
 
 function App() {
   //  console.log(import.meta.env.VITE_APPWRITE_URL)
@@ -29,11 +27,11 @@ function App() {
       });
   }, []);
   return loading ? (
-    <h1>Loading...</h1>
+    <Loader/>
   ) : (
-    <div className="cont">
+    <div >
       <Header></Header>
-      <Outlet/>
+      <Outlet />
       <Footer></Footer>
     </div>
   );
